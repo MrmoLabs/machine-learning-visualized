@@ -1,0 +1,91 @@
+name: release-assets
+
+# 推送 v* 标签（如 v1.0.0）时，自动构建中文版 EPUB 与离线网页包，
+# 并上传到 GitHub Release 页面供下载。
+#
+# 注意：Releases 只能挂「可下载的文件」，不能直接在线浏览网页；
+# 想在线浏览请在 Settings -> Pages 把 Source 设为 GitHub Actions，
+# 由 ci.yml 部署到 GitHub Pages。
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Set up Pandoc
+        uses: pandoc/setup-pandoc@v1
+
+      - name: Build EPUB (中文版电子书)
+        run: |
+          mkdir -p release
+          nbmerge $(ls chapter1/*.ipynb chapter2/*.ipynb chapter3/*.ipynb chapter4/*.ipynb | sort) -o combined.ipynb
+          pandoc combined.ipynb -f ipynb \
+            -o release/machine-learning-visualized-zh.epub \
+            --toc --embed-resources \
+            --resource-path "chapter1:chapter2:chapter3:chapter4:." \
+            --metadata-file epub-metadata.yaml
+          rm -f combined.ipynb
+
+      - name: Build offline website (离线网页包)
+        run: |
+          jupyter-book build .
+          cd _build/html
+          zip -qr ../../release/machine-learning-visualized-zh-html.zip .
+
+      - name: Write release notes
+        run: |
+          cat > release/notes.md <<'EOF'
+          ## 机器学习可视化 · 简体中文版
+
+          **附件说明**
+
+          | 文件 | 用法 |
+          | --- | --- |
+          | `machine-learning-visualized-zh.epub` | 用任意电子书阅读器打开（含 27 张插图） |
+          | `machine-learning-visualized-zh-html.zip` | 解压后需启动本地 HTTP 服务才能用站内搜索与 marimo 交互：仓库根目录执行 `python serve_local.py`，再访问 http://localhost:8000/ |
+
+          > 直接双击 HTML 包里的 `index.html` 会缺失搜索、首页卡片跳转与 3 个交互页
+          > （marimo 服务端的 `frame-ancestors` CSP 不允许 `file:` 来源嵌入）。
+
+          **在线浏览**：在仓库 `Settings -> Pages` 把 Source 设为 `GitHub Actions`，
+          推送到 main 后由 Actions 部署，地址形如 `https://mrmolabs.github.io/machine-learning-visualized/`。
+          EOF
+
+      - name: Publish GitHub Release (打 tag 时)
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" release/*.epub release/*.zip --clobber
+            gh release edit "$GITHUB_REF_NAME" --notes-file release/notes.md
+          else
+            gh release create "$GITHUB_REF_NAME" release/*.epub release/*.zip \
+              --title "$GITHUB_REF_NAME 中文版" \
+              --notes-file release/notes.md
+          fi
+
+      - name: Upload workflow artifact (未打 tag、仅手动试跑时)
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-assets
+          path: release/
+          if-no-files-found: error

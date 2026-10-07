@@ -72,14 +72,26 @@ docker rmi jupyter-book
 
 ## 构建 EPUB（新增）
 
-```sh
-brew install --cask mactex
-nbmerge $(ls chapter1/*.ipynb chapter2/*.ipynb chapter3/*.ipynb chapter4/*.ipynb | sort) -o book/combined.ipynb
-jupyter nbconvert --to latex book/combined.ipynb
+依赖：`pip install nbmerge`，并安装 [pandoc](https://pandoc.org/installing.html)。
 
-docker build -f Dockerfile.pandoc -t my-pandoc .
-docker run --rm -v $(pwd):/data my-pandoc pandoc book/combined.tex -o book/combined.epub --mathml --embed-resources --standalone
+```sh
+nbmerge $(ls chapter1/*.ipynb chapter2/*.ipynb chapter3/*.ipynb chapter4/*.ipynb | sort) -o combined.ipynb
+pandoc combined.ipynb -f ipynb -o release/machine-learning-visualized-zh.epub \
+  --toc --embed-resources \
+  --resource-path "chapter1:chapter2:chapter3:chapter4:." \
+  --metadata-file epub-metadata.yaml
 ```
+
+也可以直接推标签自动发布（`.github/workflows/release.yml` 会执行上面的流程，
+并额外打包一份离线网页，一起挂到 GitHub Release 页面）：
+
+```sh
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+> 注意：Release 附件只能**下载后查看**，GitHub 不会在 Releases 页面渲染网页；
+> 要在线浏览请在 `Settings -> Pages` 把 Source 设为 `GitHub Actions`。
 
 ## 效果展示
 

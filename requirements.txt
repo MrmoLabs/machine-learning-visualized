@@ -5,5 +5,6 @@ pydata-sphinx-theme<0.15.3
 nbconvert
 nbformat
 jieba  # 中文搜索索引分词（Sphinx language: zh_CN 需要）
+nbmerge  # 打 Release 时合并 9 个 notebook 生成 EPUB
 celluloid
 scienceplots

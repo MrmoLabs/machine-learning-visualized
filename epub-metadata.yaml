@@ -1,0 +1,5 @@
+# EPUB 电子书元数据，供 pandoc 生成 Release 附件时读取。
+# 用法见 README「构建 EPUB」一节与 .github/workflows/release.yml
+title: 机器学习可视化（Machine Learning Visualized）
+author: gavinkhung
+lang: zh-Hans
