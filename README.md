@@ -32,7 +32,27 @@
 
 ## 使用方法
 
-### 第 1 步：下载 Jupyter Notebook
+### 从零开始的完整命令
+
+```sh
+# 1. 获取仓库（汉化后的 notebook 已随仓库提供，无需单独下载）
+git clone https://github.com/<你的用户名>/machine-learning-visualized.git
+cd machine-learning-visualized
+
+# 2. 安装依赖（jupyter-book、pydata-sphinx-theme、jieba、nbmerge 等）
+pip install -r requirements.txt
+
+# 3. 构建
+jupyter-book build --all .
+
+# 4. 启动本地服务（必须用 HTTP 服务，直接双击 index.html 会缺搜索和交互，详见第 3 步）
+python serve_local.py
+# 浏览器访问 http://localhost:8000/  ，Ctrl+C 停止
+```
+
+下面分步说明每一步。
+
+### 第 1 步（可选）：下载 Jupyter Notebook
 
 ```sh
 chmod +x ./download_notebooks.sh
@@ -48,9 +68,13 @@ chmod +x ./download_notebooks.sh
 #### 方式 1：jupyter-book 命令行工具
 
 ```sh
-pip install -U jupyter-book
+pip install -r requirements.txt
 jupyter-book build .
 ```
+
+> 必须用 `requirements.txt` 而不是只装 `jupyter-book`：其中包含 `jieba`
+> （Sphinx 在 `language: zh_CN` 下的中文分词需要；缺少它时索引里 0 个中文词条，
+> 站内搜不到任何中文）、`pydata-sphinx-theme`（页面主题）、`nbmerge`（构建 EPUB 用）等依赖。
 
 #### 方式 2：Docker Compose
 
