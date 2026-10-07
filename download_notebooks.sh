@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Fail on HTTP errors (--fail) and follow redirects (-L) so that a 404 does not
-# get silently written into a .ipynb file and break the build later.
+# 本仓库已将汉化后的 notebook 纳入版本管理，因此默认跳过下载，
+# 构建时直接使用仓库中的中文版本（否则 CI 会用上游英文原版覆盖它们）。
+# 如需强制同步上游最新版：FORCE_DOWNLOAD=1 ./download_notebooks.sh
 download() {
+  if [[ -z "${FORCE_DOWNLOAD:-}" && -f "$1" ]]; then
+    echo "skip $1 (already in repo; set FORCE_DOWNLOAD=1 to refresh)"
+    return 0
+  fi
+  # Fail on HTTP errors (--fail) and follow redirects (-L) so that a 404 does not
+  # get silently written into a .ipynb file and break the build later.
   curl --fail --location --silent --show-error -o "$1" "$2"
 }
 
