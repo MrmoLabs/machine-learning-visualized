@@ -1,25 +1,25 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
+# 目录（Table of contents）
+# 了解更多：https://jupyterbook.org/customize/toc.html
 
 format: jb-book
 root: index
 parts:
-  - caption: Chapter 1. Optimization
+  - caption: 第 1 章 优化（Optimization）
     chapters:
     - file: chapter1/linear_regression
     - file: chapter1/optimizers
     - file: chapter1/interactive_linear_regression
-  - caption: Chapter 2. Clustering and Reduction
+  - caption: 第 2 章 聚类与降维（Clustering and Reduction）
     chapters:
     - file: chapter2/pca
     - file: chapter2/k_means
-  - caption: Chapter 3. Linear Models
+  - caption: 第 3 章 线性模型（Linear Models）
     chapters:
     - file: chapter3/perceptron
     - file: chapter3/logistic_regression
     - file: chapter3/interactive_perceptron
     - file: chapter3/interactive_logistic_regression
-  - caption: Chapter 4. Neural Networks
+  - caption: 第 4 章 神经网络（Neural Networks）
     chapters:
     - file: chapter4/neural_network
     - file: chapter4/neural_network_weights

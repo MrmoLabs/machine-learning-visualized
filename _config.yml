@@ -1,29 +1,29 @@
-# Book settings
-# Learn more at https://jupyterbook.org/customize/config.html
+# 书籍设置（Book settings）
+# 了解更多：https://jupyterbook.org/customize/config.html
 
-title: Machine Learning Visualized
+title: 机器学习可视化（Machine Learning Visualized）
 author: Gavin Hung
 
-# Force re-execution of notebooks on each build.
-# See https://jupyterbook.org/content/execute.html
+# 每次构建时强制重新执行 notebook。
+# 参见 https://jupyterbook.org/content/execute.html
 execute:
   # execute_notebooks: force
   execute_notebooks: 'off'
   # execute_notebooks: cache
 
-# Define the name of the latex output file for PDF builds
+# 指定 PDF 构建时 LaTeX 输出文件的名称
 latex:
   latex_documents:
     targetname: book.tex
 
-# Information about where the book exists on the web
+# 本书在网上的位置信息
 repository:
-  url: https://github.com/gavinkhung/machine-learning-visualized  # Online location of your book
-  path_to_book: ""  # Book is at the repository root
-  branch: main  # Which branch of the repository should be used when creating links (optional)
+  url: https://github.com/gavinkhung/machine-learning-visualized  # 书籍的在线地址
+  path_to_book: ""  # 书籍位于仓库根目录
+  branch: main  # 创建链接时应使用的仓库分支（可选）
 
-# Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+# 在书籍页面上添加 GitHub 按钮
+# 参见 https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   favicon: logo.png
   use_issues_button: true
@@ -36,7 +36,8 @@ html:
 sphinx:
   recursive_update: true
   config:
-    language: en
+    # 界面语言：让 Sphinx/主题的界面文案（上一页、下一页等）显示为中文
+    language: zh_CN
 #     html_theme: pydata_sphinx_theme
     # html_theme: furo
     html_show_copyright: false
@@ -44,5 +45,8 @@ sphinx:
       default_mode: light
   extra_extensions:
     - 'sphinx.ext.autodoc'
+  # 中文搜索：额外索引连续中文串，避免 jieba 切词后短语查询命中不了
+  local_extensions:
+    zh_search_index: .
   html_theme_options:
     sidebar_toggle: false

@@ -1,6 +1,6 @@
-# Interactive Logistic Regression
+# 交互式逻辑回归（Interactive Logistic Regression）
 
-Adjust the slider values to see how the binary classification curve using the Sigmoid function changes with different parameter values.
+拖动滑块，观察使用 Sigmoid 函数的二分类曲线如何随参数取值变化。
 
 <iframe
   src="https://marimo.app/l/cs19cb?show-code=false&embed=true"

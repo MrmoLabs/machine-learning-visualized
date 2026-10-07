@@ -1,6 +1,6 @@
-# Interactive Perceptron
+# 交互式感知机（Interactive Perceptron）
 
-Adjust the slider values to see how the linear decision boundary changes.
+拖动滑块，观察线性决策边界（Decision Boundary）如何变化。
 
 <iframe
   src="https://marimo.app/l/50ccg0?show-code=false&embed=true"

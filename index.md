@@ -1,15 +1,15 @@
-# Machine Learning Visualized
+# 机器学习可视化（Machine Learning Visualized）
 
-Book of Jupyter Notebooks that implement and mathematically derive machine learning algorithms from first-principles. The output of each notebook is a visualization of the machine learning algorithm throughout its training phase, ultimately converging at its optimal weights. Happy Learning! -- [Gavin H](https://www.linkedin.com/in/gavinkhung/)
+一本收录 Jupyter Notebook 的书籍，从第一性原理出发实现并数学推导机器学习算法。每个 Notebook 的输出都是该算法训练过程的可视化，最终收敛到最优权重。祝学习愉快！—— [Gavin H](https://www.linkedin.com/in/gavinkhung/)
 
 ```{only} html
 [![](https://img.shields.io/github/stars/gavinkhung/machine-learning-visualized?style=social)](https://github.com/gavinkhung/machine-learning-visualized)
 [![](https://img.shields.io/github/forks/gavinkhung/machine-learning-visualized?style=social)](https://github.com/gavinkhung/machine-learning-visualized)
 ```
 
-## Chapter 4. Neural Networks
+## 第 4 章 神经网络（Neural Networks）
 
-Extending on linear models, multiple layers will be stacked and new activation functions, besides sigmoid, will be applied, allowing neural networks to learn non-linear, complex functions. The optimization process of finding the optimal weights and biases on a neural network is called Backpropagation.
+在线性模型的基础上，我们会堆叠多个层，并应用除 Sigmoid 之外的新激活函数（Activation Function），使神经网络能够学习非线性的复杂函数。在神经网络上寻找最优权重和偏置的优化过程称为反向传播（Backpropagation）。
 
 ::::{grid} 1 1 2 2
 :class-container: text-center
@@ -19,7 +19,7 @@ Extending on linear models, multiple layers will be stacked and new activation f
 :link: /chapter4/neural_network_weights
 :class-header: bg-light
 
-**Neural Network Loss Landscape**
+**神经网络损失曲面（Loss Landscape）**
 ^^^
 
 ```{image} https://raw.githubusercontent.com/gavinkhung/neural-network/refs/heads/main/neural_network_weights_loss_landscape.gif
@@ -34,7 +34,7 @@ Jupyter Notebook {fas}`arrow-right`
 :link: /chapter4/neural_network_weights
 :class-header: bg-light
 
-**Neural Network Transformations**
+**神经网络变换（Transformations）**
 ^^^
 
 ```{image} https://raw.githubusercontent.com/gavinkhung/neural-network/main/neural_network_weights.gif
@@ -49,7 +49,7 @@ Jupyter Notebook {fas}`arrow-right`
 :link: /chapter4/neural_network
 :class-header: bg-light
 
-**Neural Network Function Approximation**
+**神经网络函数逼近（Function Approximation）**
 ^^^
 
 ```{image} https://raw.githubusercontent.com/gavinkhung/neural-network/main/neural_network.gif
@@ -64,7 +64,7 @@ Jupyter Notebook {fas}`arrow-right`
 :link: /chapter4/neural_network
 :class-header: bg-light
 
-**Neural Network Backpropagation**
+**神经网络反向传播（Backpropagation）**
 ^^^
 
 ```{image} https://raw.githubusercontent.com/gavinkhung/neural-network/refs/heads/main/neural_network_loss_landscape.gif
@@ -79,7 +79,7 @@ Jupyter Notebook {fas}`arrow-right`
 :link: /chapter4/autoencoder
 :class-header: bg-light
 
-**Autoencoder Reconstructions**
+**自编码器重建结果（Reconstructions）**
 ^^^
 
 ```{image} https://raw.githubusercontent.com/gavinkhung/autoencoder/refs/heads/main/autoencoder.gif
@@ -94,7 +94,7 @@ Jupyter Notebook {fas}`arrow-right`
 :link: /chapter4/autoencoder
 :class-header: bg-light
 
-**Autoencoder Latent Space**
+**自编码器潜在空间（Latent Space）**
 ^^^
 
 ```{image} https://raw.githubusercontent.com/gavinkhung/autoencoder/refs/heads/main/autoencoder_latent_space.gif
@@ -107,9 +107,9 @@ Jupyter Notebook {fas}`arrow-right`
 
 ::::
 
-## Chapter 3. Linear Models and Activation Function
+## 第 3 章 线性模型与激活函数（Linear Models and Activation Function）
 
-Linear models, like Perceptrons, predict outcomes by applying a linear combination on the input features. The parameters from the applied linear combination are learned from optimization algorithms, like gradient descent. This is a single-layer neural network without an activation function. Logistic Regression extends the idea of a perceptron by introducing an activation function, called Sigmoid, and the binary cross entropy loss function.
+感知机（Perceptron）等线性模型通过对输入特征做线性组合来预测结果。线性组合中的参数由梯度下降（Gradient Descent）等优化算法从数据中学习得到。这相当于一个没有激活函数的单层神经网络。逻辑回归（Logistic Regression）在感知机的基础上引入了名为 Sigmoid 的激活函数以及二元交叉熵（Binary Cross Entropy）损失函数，从而扩展了感知机的思想。
 
 ::::{grid} 1 1 2 2
 :class-container: text-center
@@ -119,7 +119,7 @@ Linear models, like Perceptrons, predict outcomes by applying a linear combinati
 :link: /chapter3/logistic_regression
 :class-header: bg-light
 
-**Logistic Regression**
+**逻辑回归（Logistic Regression）**
 ^^^
 
 ```{image} https://raw.githubusercontent.com/gavinkhung/logistic-regression/main/logistic_regression.gif
@@ -134,7 +134,7 @@ Jupyter Notebook {fas}`arrow-right`
 :link: /chapter3/perceptron
 :class-header: bg-light
 
-**Perceptron**
+**感知机（Perceptron）**
 ^^^
 
 ```{image} https://raw.githubusercontent.com/gavinkhung/perceptron/main/perceptron.gif
@@ -147,9 +147,9 @@ Jupyter Notebook {fas}`arrow-right`
 
 ::::
 
-## Chapter 2. Clustering and Reduction
+## 第 2 章 聚类与降维（Clustering and Reduction）
 
-Given that machine learning models learn parameters from training data, it is important to conduct analysis on your data. Principal Component Analysis is a method of compressing your data and finding the features that account for most of the variance, allowing you to focus training on those inputs. K-Means is an unsupervised clustering algorithm that allows you to find groups of related data points, which is important for data preprocessing and identifying outliers.
+机器学习模型的参数是从训练数据中学到的，因此对数据本身做分析十分重要。主成分分析（Principal Component Analysis）是一种压缩数据、找出能解释大部分方差（Variance）的特征的方法，让你可以把训练重点放在这些输入上。K-均值聚类（K-Means）是一种无监督聚类算法，可以帮助你发现彼此相关的数据点分组，这在数据预处理和识别离群点（Outlier）时非常有用。
 
 ::::{grid} 1 1 2 2
 :class-container: text-center
@@ -159,7 +159,7 @@ Given that machine learning models learn parameters from training data, it is im
 :link: /chapter2/k_means
 :class-header: bg-light
 
-**K-Means Clustering**
+**K-均值聚类（K-Means Clustering）**
 ^^^
 
 ```{image} https://raw.githubusercontent.com/gavinkhung/k-means-clustering/main/k_means.gif
@@ -174,7 +174,7 @@ Jupyter Notebook {fas}`arrow-right`
 :link: /chapter2/pca
 :class-header: bg-light
 
-**Principal Component Analysis**
+**主成分分析（Principal Component Analysis）**
 ^^^
 
 ```{image} https://raw.githubusercontent.com/gavinkhung/pca/main/pca.gif
@@ -187,9 +187,9 @@ Jupyter Notebook {fas}`arrow-right`
 
 ::::
 
-## Chapter 1. Optimization
+## 第 1 章 优化（Optimization）
 
-This is the process of finding the optimal input parameters that minimize the values of a function. Extending this idea to machine learning, optimization algorithms need to find the best weights and biases that yield the lowest misprediction on the loss function. Gradient Descent is one such optimization algorithm. Convergence and stability is crucial to learn the parameters.
+优化是寻找能使函数取值最小的输入参数的过程。把这个思想推广到机器学习，优化算法就需要找到能让损失函数（Loss Function）的误预测最小的权重和偏置。梯度下降就是这样一种优化算法。收敛（Convergence）与稳定性对参数的学习至关重要。
 
 ::::{grid} 1 1 2 2
 :class-container: text-center
@@ -199,7 +199,7 @@ This is the process of finding the optimal input parameters that minimize the va
 :link: /chapter1/linear_regression
 :class-header: bg-light
 
-**Gradient Descent**
+**梯度下降（Gradient Descent）**
 ^^^
 
 ```{image} https://raw.githubusercontent.com/gavinkhung/gradient-descent/refs/heads/main/gradient_descent.gif
@@ -214,7 +214,7 @@ Jupyter Notebook {fas}`arrow-right`
 :link: /chapter1/optimizers
 :class-header: bg-light
 
-**Optimizers**
+**优化器（Optimizers）**
 ^^^
 
 ```{image} https://raw.githubusercontent.com/gavinkhung/optimizers/refs/heads/main/optimizers_pytorch.gif
@@ -232,55 +232,55 @@ Jupyter Notebook {fas}`arrow-right`
 ```{tableofcontents}
 ``` -->
 
-## Contributing
+## 贡献指南（Contributing）
 
 ```{only} html
 [![License: MIT](https://img.shields.io/badge/License-MIT-white.svg)](https://opensource.org/licenses/MIT)
 ```
 
-I would love to create a community where people worldwide can add onto to this open-source resource/book. At a very high level, this is just a collection of Jupyter Notebooks that implement a machine learning algorithm.
+我希望能建立一个社区，让全世界的人都能为这个开源资源/书籍添砖加瓦。简单来说，它就是一本收集了「实现机器学习算法的 Jupyter Notebook」的合集。
 
-If you have a Jupyter Notebook that you want to add to this book, feel free to make a pull request to the [GitHub Repository](https://github.com/gavinkhung/machine-learning-visualized). This is a [reference commit showing all of the necessary code changes](https://github.com/gavinkhung/machine-learning-visualized/commit/98900877d3d1a42c972b3e618ad46968f02513cb).
+如果你有想加入本书的 Jupyter Notebook，欢迎向 [GitHub 仓库](https://github.com/gavinkhung/machine-learning-visualized) 提交拉取请求（Pull Request）。这里有一份[展示了全部必要代码改动的参考提交](https://github.com/gavinkhung/machine-learning-visualized/commit/98900877d3d1a42c972b3e618ad46968f02513cb)。
 
-Note: You need to upload your Notebook to your own GitHub repository. Assuming you follow the reference commit, the build process for this Jupyter Book will simply download your `.ipynb` file and update the GitHub Pages after the pull request is approved.
+注意：你需要把你的 Notebook 上传到你自己的 GitHub 仓库。只要按照参考提交操作，拉取请求被合并后，本 Jupyter Book 的构建过程就会自动下载你的 `.ipynb` 文件并更新 GitHub Pages。
 
-## About the Book
+## 关于本书
 
-> I am a curious learner and am interested in high performance computing systems, especially supporting machine learning workloads. I plan on applying to Computer Science Graduate Programs (Master's Degrees) and pursuing the degree part-time without interrupting my career. If you have any tips or know any contacts about computer science graduate program applications, feel free to reach out to me (ghung AT umd DOT edu).
+> 我是一名充满好奇心的学习者，对高性能计算系统很感兴趣，尤其是支撑机器学习工作负载的系统。我计划申请计算机科学研究生项目（硕士学位），并以在职方式攻读，而不中断我的工作。如果你对计算机科学研究生申请有建议或认识相关的人，欢迎联系我（ghung AT umd DOT edu）。
 
-I coded these Python Jupyter Notebooks using my lecture notes from classes at the [University of Maryland, College Park](https://www.cs.umd.edu/).
+这些 Python Jupyter Notebook 是我根据在[马里兰大学帕克分校（University of Maryland, College Park）](https://www.cs.umd.edu/)上课时的课堂笔记编写而成的。
 
-If you want to run these Jupyter Notebooks yourself, click the download icon at the top right of any page and select the `.ipynb` option. Then, open and run the code blocks locally or on the cloud, like Google Colab. 
+如果你想自己运行这些 Jupyter Notebook，点击任意页面右上角的下载图标并选择 `.ipynb` 选项，然后在本地或 Google Colab 等云端环境中打开并运行这些代码块。
 
-For more advanced users, I made Terraform scripts to quickly spin up AWS SageMaker Notebooks [here](https://github.com/gavinkhung/gpu-inference).
+对于进阶用户，我还写了一些 Terraform 脚本，可以快速创建 AWS SageMaker Notebook，见[这里](https://github.com/gavinkhung/gpu-inference)。
 
-### Notable UMD Coursework
+### 值得一提的 UMD 课程
 
-- [CMSC422 Introduction to Machine Learning](https://www.cs.umd.edu/class/fall2023/cmsc422/)
-- [CMSC320 Introduction to Data Science](https://www.cs.umd.edu/class/spring2024/cmsc320-0201/)
+- [CMSC422 机器学习导论（Introduction to Machine Learning）](https://www.cs.umd.edu/class/fall2023/cmsc422/)
+- [CMSC320 数据科学导论（Introduction to Data Science）](https://www.cs.umd.edu/class/spring2024/cmsc320-0201/)
 - [UMD QML](https://qmlfire.github.io/)
 
-### Machine Learning Lecture Notes
+### 机器学习课堂笔记
 
-Chapter 1:
+第 1 章：
 
-- [Gradient Descent Notes](https://github.com/gavinkhung/gradient-descent/blob/main/gradient-descent.pdf)
+- [梯度下降笔记](https://github.com/gavinkhung/gradient-descent/blob/main/gradient-descent.pdf)
 
-Chapter 2:
+第 2 章：
 
-- [Principal Component Analysis Notes](https://github.com/gavinkhung/pca/blob/main/pca.pdf)
+- [主成分分析笔记](https://github.com/gavinkhung/pca/blob/main/pca.pdf)
 
-Chapter 3:
+第 3 章：
 
-- [Perceptron Notes](https://github.com/gavinkhung/perceptron/blob/main/perceptron.pdf)
-- [Naive Bayes and Maximum Likelihood Estimation Notes](https://github.com/gavinkhung/logistic-regression/blob/main/maximum-likelihood.pdf)
-- [Logistic Regression Notes](https://github.com/gavinkhung/logistic-regression/blob/main/logistic-regression.pdf)
-- [Softmax Regression](https://github.com/gavinkhung/logistic-regression/blob/main/softmax.pdf)
+- [感知机笔记](https://github.com/gavinkhung/perceptron/blob/main/perceptron.pdf)
+- [朴素贝叶斯与最大似然估计笔记](https://github.com/gavinkhung/logistic-regression/blob/main/maximum-likelihood.pdf)
+- [逻辑回归笔记](https://github.com/gavinkhung/logistic-regression/blob/main/logistic-regression.pdf)
+- [Softmax 回归](https://github.com/gavinkhung/logistic-regression/blob/main/softmax.pdf)
 
-Chapter 4:
+第 4 章：
 
-- [Neural Networks Forward Propagation Notes](https://github.com/gavinkhung/neural-network/blob/main/forward-propagation.pdf)
-- [Neural Networks Back Propagation Notes](https://github.com/gavinkhung/neural-network/blob/main/back-propagation.pdf)
+- [神经网络前向传播笔记](https://github.com/gavinkhung/neural-network/blob/main/forward-propagation.pdf)
+- [神经网络反向传播笔记](https://github.com/gavinkhung/neural-network/blob/main/back-propagation.pdf)
 
 <!-- ## Analytics
 
