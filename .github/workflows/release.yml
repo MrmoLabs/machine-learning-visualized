@@ -39,6 +39,7 @@ jobs:
           pandoc combined.ipynb -f ipynb \
             -o release/machine-learning-visualized-zh.epub \
             --toc --embed-resources \
+            --lua-filter epub-unpack-cells.lua \
             --resource-path "chapter1:chapter2:chapter3:chapter4:." \
             --metadata-file epub-metadata.yaml
           rm -f combined.ipynb

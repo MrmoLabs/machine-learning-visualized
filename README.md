@@ -78,9 +78,13 @@ docker rmi jupyter-book
 nbmerge $(ls chapter1/*.ipynb chapter2/*.ipynb chapter3/*.ipynb chapter4/*.ipynb | sort) -o combined.ipynb
 pandoc combined.ipynb -f ipynb -o release/machine-learning-visualized-zh.epub \
   --toc --embed-resources \
+  --lua-filter epub-unpack-cells.lua \
   --resource-path "chapter1:chapter2:chapter3:chapter4:." \
   --metadata-file epub-metadata.yaml
 ```
+
+> `epub-unpack-cells.lua` 用于去掉 pandoc 给每个 cell 包的 Div，
+> 否则 EPUB 无法按章节分文件，整本书会挤成一个 `ch001.xhtml`。
 
 也可以直接推标签自动发布（`.github/workflows/release.yml` 会执行上面的流程，
 并额外打包一份离线网页，一起挂到 GitHub Release 页面）：
